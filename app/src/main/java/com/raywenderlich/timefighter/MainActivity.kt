@@ -17,8 +17,8 @@ class MainActivity : AppCompatActivity() {
     private  var gameStarted = false
 
     private lateinit var countDownTimer: CountDownTimer
-    private var initialCountDown: long = 60000
-    private var countDownInterval: long = 1000
+    private var initialCountDown: Long = 60000
+    private var countDownInterval: Long = 1000
     private var timeLeft = 60
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,6 +34,8 @@ class MainActivity : AppCompatActivity() {
 
         //2
         tapMeButton.setOnClickListener { incrementScore() }
+
+        resetGame()
     }
 
     private  fun incrementScore() {
