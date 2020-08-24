@@ -57,11 +57,11 @@ class MainActivity : AppCompatActivity() {
 
         //2
         countDownTimer = object : CountDownTimer(initialCountDown, countDownInterval) {
-            override fun onTick(millisUntilFinished: long) {
+            override fun onTick(millisUntilFinished: Long) {
                 timeLeft = millisUntilFinished.toInt() / 1000
 
                 val timeLeftString = getString(R.string.time_left, timeLeft)
-                timeLeftTextView.tect = timeLeftString
+                timeLeftTextView.text = timeLeftString
             }
 
             override fun onFinish() {
