@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.os.CountDownTimer
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 
 class MainActivity : AppCompatActivity() {
 
@@ -43,6 +44,9 @@ class MainActivity : AppCompatActivity() {
 
         val newScore = getString(R.string.your_score, score)
         gameScoreTextView.text = newScore
+
+        if (!gameStarted)
+            startGame()
     }
 
     private fun resetGame() {
@@ -65,7 +69,7 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun onFinish() {
-                //TODO implemented late
+                endGame()
             }
         }
 
@@ -74,10 +78,12 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun startGame() {
-        //TODO start game logic
+        countDownTimer.start()
+        gameStarted = true
     }
 
     private fun endGame() {
-        //TODO end game logic
+        Toast.makeText(this, getString(R.string.game_over_message, score), Toast.LENGTH_LONG).show()
+        resetGame()
     }
 }
