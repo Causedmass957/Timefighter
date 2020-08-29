@@ -4,6 +4,7 @@ import android.content.IntentSender
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
+import android.util.Log
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
@@ -22,9 +23,12 @@ class MainActivity : AppCompatActivity() {
     private var countDownInterval: Long = 1000
     private var timeLeft = 60
 
+    private val TAG = MainActivity::class.java.simpleName
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        Log.d(TAG, "onCreate called. Score is: $score")
 
         //1
         gameScoreTextView = findViewById(R.id.game_score_text_view)
